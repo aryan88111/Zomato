@@ -4,6 +4,8 @@ const userRouter = require('./routes/user');
 const loginRouter = require('./routes/login');
 const Restrorouter = require('./routes/restaurant');
 const Productrouter = require('./routes/product');
+let paymentMethod = require('./routes/payment')
+let ratingRoutes = require('./routes/rating')
 const cors = require('cors');
 
 const app = express();
@@ -22,6 +24,8 @@ app.use('/api', Restrorouter)
 app.use('/api', Productrouter)
 app.use("/api", userRouter);
 app.use("/api", loginRouter);
+app.use("/api", paymentMethod);
+app.use("/api", ratingRoutes);
 
 
 app.listen(Port, (req, res) => {
